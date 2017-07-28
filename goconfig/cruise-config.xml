@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="93">
+  <server commandRepositoryLocation="default">
+    <elastic>
+      <profiles>
+        <profile id="test" pluginId="cd.go.contrib.elastic-agent.docker">
+          <property>
+            <key>Image</key>
+            <value>gocd/gocd-agent-alpine-3.5:v17.7.0</value>
+          </property>
+          <property>
+            <key>Command</key>
+            <value>/docker-entrypoint.sh</value>
+          </property>
+          <property>
+            <key>Environment</key>
+          </property>
+        </profile>
+      </profiles>
+    </elastic>
+  </server>
+  <pipelines group="defaultGroup">
+    <pipeline name="test">
+      <materials>
+        <git url="https://github.com/akshaykarle/dotfiles.git" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob" elasticProfileId="test">
+            <tasks>
+              <exec command="ls" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+</cruise>

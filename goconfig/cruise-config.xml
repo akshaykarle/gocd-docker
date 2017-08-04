@@ -19,6 +19,11 @@
       </profiles>
     </elastic>
   </server>
+  <config-repos>
+    <config-repo plugin="yaml.config.plugin">
+      <git url="https://github.com/akshaykarle/gocd-yaml-config-example.git" />
+    </config-repo>
+  </config-repos>
   <pipelines group="defaultGroup">
     <pipeline name="test">
       <materials>

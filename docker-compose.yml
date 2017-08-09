@@ -1,7 +1,7 @@
 version: '3'
 services:
   gocd-server:
-    build: ./server
+    build: .
     container_name: gocd-server
     hostname: gocd
     ports:
@@ -10,8 +10,6 @@ services:
     volumes:
       - ./godata:/godata
       - /var/run/docker.sock:/var/run/docker.sock
-    # environment:
-    #   GO_SERVER_SYSTEM_PROPERTIES: "$GO_SERVER_SYSTEM_PROPERTIES -Dplugin.cd.go.contrib.elastic-agent.docker.log.level=debug"
     command:
       ["bash", "-c", "chown go /var/run/docker.sock && /docker-entrypoint.sh"]
     network_mode: bridge

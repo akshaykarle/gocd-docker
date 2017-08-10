@@ -1,4 +1,4 @@
-FROM gocd/gocd-server:v17.7.0
+FROM gocd/gocd-server:v17.8.0
 
 RUN apk --no-cache add docker
 

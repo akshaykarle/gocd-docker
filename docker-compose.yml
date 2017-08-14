@@ -11,5 +11,5 @@ services:
       - ./godata:/godata
       - /var/run/docker.sock:/var/run/docker.sock
     command:
-      ["bash", "-c", "chown go /var/run/docker.sock && /docker-entrypoint.sh"]
+      ["bash", "-c", "chown -R go /godata /var/run/docker.sock && /docker-entrypoint.sh"]
     network_mode: bridge

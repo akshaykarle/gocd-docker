@@ -2,7 +2,7 @@
 set -e
 
 mkdir -p godata/config
-cp -f goconfig/cruise-config.xml ./godata/config/cruise-config.xml
+cp -f cruise-config.xml.sample ./godata/config/cruise-config.xml
 
 mkdir -p godata/plugins/external
 if [ ! -f ./godata/plugins/external/docker-elastic-agents-0.7.0.jar ]; then

@@ -3,7 +3,7 @@ FROM gocd/gocd-server:v17.8.0
 RUN apk --no-cache add docker
 
 RUN mkdir -p godata/config
-COPY goconfig/cruise-config.xml godata/config/cruise-config.xml
+COPY cruise-config.xml.sample godata/config/cruise-config.xml
 
 RUN mkdir -p godata/plugins/external
 ADD https://github.com/gocd-contrib/docker-elastic-agents/releases/download/v0.7.0/docker-elastic-agents-0.7.0.jar godata/plugins/external

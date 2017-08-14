@@ -6,7 +6,7 @@
         <profile id="test" pluginId="cd.go.contrib.elastic-agent.docker">
           <property>
             <key>Image</key>
-            <value>gocd/gocd-agent-alpine-3.5:v17.7.0</value>
+            <value>gocd/gocd-agent-alpine-3.5:v17.8.0</value>
           </property>
           <property>
             <key>Command</key>
@@ -27,7 +27,7 @@
   <pipelines group="defaultGroup">
     <pipeline name="test">
       <materials>
-        <git url="https://github.com/akshaykarle/dotfiles.git" />
+        <git url="https://github.com/akshaykarle/gocd-docker.git" />
       </materials>
       <stage name="defaultStage">
         <jobs>

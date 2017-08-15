@@ -1,4 +1,5 @@
 godata/*
 *terraform.tfstate*
+*.tfvars
 .terraform/
 **.swp

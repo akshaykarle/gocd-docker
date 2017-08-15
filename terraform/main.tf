@@ -1,7 +1,7 @@
-variable "tf_backend_bucket_name" {}
+variable "tf_backend_bucket_name" { default = "terraform.akshay" }
 variable "tf_backend_bucket_region" { default = "sa-east-1" }
 
-variable "compute_workspace" {}
+variable "compute_workspace" { default = "akshay" }
 data "terraform_remote_state" "compute" {
   environment = "${var.compute_workspace}"
   backend = "s3"
@@ -12,7 +12,7 @@ data "terraform_remote_state" "compute" {
   }
 }
 
-variable "dns_workspace" {}
+variable "dns_workspace" { default = "akshay" }
 data "terraform_remote_state" "dns" {
   environment = "${var.dns_workspace}"
   backend = "s3"

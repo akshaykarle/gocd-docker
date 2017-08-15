@@ -2,6 +2,7 @@ version: '3'
 services:
   gocd-server:
     build: .
+    image: akshaykarle/gocd-server:latest
     container_name: gocd-server
     hostname: gocd
     ports:

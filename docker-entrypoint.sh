@@ -35,7 +35,7 @@ fi
 if [ "$1" = '/go-server/server.sh' ]; then
 
   if [ "$(id -u)" = '0' ]; then
-    server_dirs=(artifacts config db logs plugins addons)
+    server_dirs=(config db logs plugins addons)
 
     yell "Creating directories and symlinks to hold GoCD configuration, data, and logs"
 

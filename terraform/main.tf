@@ -58,6 +58,7 @@ resource "aws_ecs_task_definition" "gocd-server" {
     "cpu": 2,
     "memory": 2048,
     "essential": true,
+    "command": ["bash", "-c", "chown -R go /var/run/docker.sock && /docker-entrypoint.sh"],
     "portMappings": [
       {
         "containerPort": 8153,
@@ -70,8 +71,8 @@ resource "aws_ecs_task_definition" "gocd-server" {
     ],
     "mountPoints": [
       {
-        "sourceVolume": "godata",
-        "containerPath": "/godata"
+        "sourceVolume": "docker-sock",
+        "containerPath": "/var/run/docker.sock"
       }
     ],
     "logConfiguration": {
@@ -87,8 +88,8 @@ resource "aws_ecs_task_definition" "gocd-server" {
 DEFINITIONS
 
   volume {
-    name = "godata"
-    host_path = "/opt/gocd-server/data/"
+    name = "docker-sock"
+    host_path = "/var/run/docker.sock"
   }
 }
 

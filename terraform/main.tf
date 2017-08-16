@@ -59,6 +59,7 @@ resource "aws_ecs_task_definition" "gocd-server" {
     "memory": 2048,
     "essential": true,
     "command": ["bash", "-c", "chown -R go /var/run/docker.sock && /docker-entrypoint.sh"],
+    "hostname": "gocd-server",
     "portMappings": [
       {
         "containerPort": 8153,

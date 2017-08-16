@@ -23,7 +23,6 @@ VOLUME_DIR="/godata"
 # these 3 vars are used by `/go-server/server.sh`, so we export
 export SERVER_WORK_DIR="/go-working-dir"
 export GO_CONFIG_DIR="/go-working-dir/config"
-export STDOUT_LOG_FILE="/go-working-dir/logs/go-server.out.log"
 
 # no arguments are passed so assume user wants to run the gocd server
 # we prepend "/go-server/server.sh" to the argument list
@@ -63,7 +62,7 @@ if [ "$1" = '/go-server/server.sh' ]; then
       fi
     done
 
-	  try exec /sbin/tini -- su-exec go "$0" "$@" >> ${STDOUT_LOG_FILE} 2>&1
+	  try exec /sbin/tini -- su-exec go "$0" "$@"
   fi
 fi
 

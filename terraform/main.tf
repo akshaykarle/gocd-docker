@@ -74,6 +74,10 @@ resource "aws_ecs_task_definition" "gocd-server" {
       {
         "sourceVolume": "docker-sock",
         "containerPath": "/var/run/docker.sock"
+      },
+      {
+        "sourceVolume": "godata",
+        "containerPath": "/godata"
       }
     ],
     "logConfiguration": {
@@ -91,6 +95,10 @@ DEFINITIONS
   volume {
     name = "docker-sock"
     host_path = "/var/run/docker.sock"
+  }
+  volume {
+    name = "godata"
+    host_path = "/opt/gocd-server/data/"
   }
 }
 

@@ -97,7 +97,7 @@ module "gocd-server" {
   source = "github.com/akshaykarle/terraform-ecs-modules/service_with_alb_listener"
 
   name = "gocd-server"
-  ports = [8153, 8154]
+  port = 8153
   health_check_path = "/go/about"
   vpc_id = "${data.terraform_remote_state.compute.vpc_id}"
   cluster_id = "${data.terraform_remote_state.compute.ecs_cluster_name}"

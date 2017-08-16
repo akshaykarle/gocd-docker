@@ -107,7 +107,7 @@ module "gocd-server" {
 
   name = "gocd-server"
   port = 8153
-  health_check_path = "/go/about"
+  health_check_path = "/go/auth/login"
   vpc_id = "${data.terraform_remote_state.compute.vpc_id}"
   cluster_id = "${data.terraform_remote_state.compute.ecs_cluster_name}"
   alb_arn = "${aws_alb.default.arn}"

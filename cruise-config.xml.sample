@@ -18,6 +18,16 @@
         </profile>
       </profiles>
     </elastic>
+    <security>
+      <authConfigs>
+        <authConfig id="gomatic-test" pluginId="cd.go.authentication.passwordfile">
+          <property>
+            <key>PasswordFilePath</key>
+            <value>/godata/gomatic-passwd</value>
+          </property>
+        </authConfig>
+      </authConfigs>
+    </security>
   </server>
   <config-repos>
     <config-repo plugin="yaml.config.plugin">

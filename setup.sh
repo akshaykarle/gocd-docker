@@ -3,6 +3,7 @@ set -e
 
 mkdir -p godata/config
 cp -f cruise-config.xml.sample ./godata/config/cruise-config.xml
+cp -f gomatic-passwd ./godata/gomatic-passwd
 cp -f log4j-stdout.properties ./godata/config/log4j.properties
 
 mkdir -p godata/plugins/external
